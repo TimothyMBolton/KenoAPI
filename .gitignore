@@ -1,0 +1,10 @@
+/Data
+/venv
+.env
+/.vscode
+/__pycache__
+all3Combination.txt
+all4Combination.txt
+awsChecker.py
+kenoMongo.pyvibeCheckResults.txt
+MasterData.json
