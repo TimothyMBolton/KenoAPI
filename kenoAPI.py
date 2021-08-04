@@ -10,6 +10,7 @@ from pprint import pprint
 from kenoMasterFileCreator import createMaster, first10chars
 import time
 
+
 URL_RECENT_GAMES = 'https://api-info-nsw.keno.com.au/v2/info/history?jurisdiction=NSW'
 urlTest = 'https://api-info-nsw.keno.com.au/v2/info/history?jurisdiction=NSW&starting_game_number=600&number_of_games=200&date=2021-07-07&page_size=20&page_number=1'
 
@@ -109,8 +110,6 @@ def updateMasterData(fileName="MasterData.json"):
     sortedFileList.remove('.DS_Store')
     dateR = sortedFileList[-1][:10]
     lastDateDownloaded = date(year= int(dateR[:4]), month = int(dateR[5:7]), day = int(dateR[8:10]))
-    startGameOfLastDateDownloaded = findStartGame(lastDateDownloaded)
-    endGameOfLastDateDownloaded = findStartGame(lastDateDownloaded + timedelta(days=1))
     
     with open(directory + sortedFileList[-1]) as f:
         data = json.load(f)
@@ -176,10 +175,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    # moveFiles()
-    # for i in range(1, 10):
-    #     yesterday = date.today() - timedelta(days=i)
-    #     writeToJsonFile(str(yesterday) + ' Keno Games.json', findDaysGames(yesterday))
-    # writeToJsonFile((str(date.today()) + ' Keno Games.json'), findTodaysGames())
-    # dateToUse = date(year=2021, month=4, day=2)
-    # writeToJsonFile(str(str(dateToUse) + ' Keno Games.json'), findDaysGames(dateToUse))

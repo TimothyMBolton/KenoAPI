@@ -1,6 +1,5 @@
 /Data
 /venv
-/Sets
 .env
 /.vscode
 /__pycache__
